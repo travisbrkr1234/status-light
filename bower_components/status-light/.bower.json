@@ -1,0 +1,23 @@
+{
+  "main": "status-light.html",
+  "name": "status-light",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.5",
+    "paper-shadow": "Polymer/paper-shadow#0.5.4"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.0.5"
+  },
+  "homepage": "https://github.com/infusionsoft/bard-canspam.git",
+  "_release": "12282e4f4e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "12282e4f4ef8e5aca93d6f9d792881256fe2ce45"
+  },
+  "_source": "http://github.com/bigdave/status-light.git",
+  "_target": "*",
+  "_originalSource": "http://github.com/bigdave/status-light.git",
+  "_direct": true
+}
