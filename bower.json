@@ -1,0 +1,13 @@
+{
+  "main": "status-light.html",
+  "name": "status-light",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.5",
+    "paper-shadow": "Polymer/paper-shadow#0.5.4"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.0.5"
+  },
+  "homepage": "https://github.com/infusionsoft/bard-canspam.git"
+}

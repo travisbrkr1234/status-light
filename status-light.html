@@ -1,0 +1,63 @@
+<!--
+`status-light` renders an indicator of one of a pre-selected number of statuses
+in a visual way for easy identification and reference.  Potential uses are for a
+dashboard where one or more elements may need a quick and easy reference for the
+status, as in 'good', 'bad', or 'amber alert'.
+
+Used as follows:
+
+    <status-light></status-light>
+
+@element status-light
+@homepage http://github.com/bigdave/status-light
+@status unstable
+-->
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../paper-shadow/paper-shadow.html" />
+
+<polymer-element name="status-light" attributes="statuses status">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+
+      #light {
+        background-color: #9E9E9E;
+        border-radius: 100%;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+
+    <paper-shadow id="light" z=2 style='background-color: {{ statuses[status] }}'></paper-shadow>
+  </template>
+  <script>
+    (function () {
+      "use strict";
+      Polymer({
+        created: function() {
+          /**
+          * The different statuses we are displaying, as a list of hex color
+          * value strings. The default is red, yellow, green.
+          *
+          * @attribute statuses
+          * @type Array
+          * @default ['#F44336', '#FFEB3B', '#4CAF50']
+          */
+          this.statuses = ['#F44336', '#FFEB3B', '#4CAF50']
+        },
+
+        /**
+         * The current status to be displayed. By default, no status is set, and
+         * the element displays as grey.
+         *
+         * @attribute status
+         * @type Number
+         * @default null
+         */
+        status: null
+      });
+    }());
+  </script>
+</polymer-element>

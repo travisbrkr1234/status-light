@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <title>status-light</title>
+  <script src="../webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="./status-light.html">
+
+  <style>
+    status-light {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <p>A status light with no attributes set will show as grey, indicating that
+    it is inactive:</p>
+  <status-light></status-light>
+
+  <p>By default, the light supports three statuses, red, yellow, and green:</p>
+  <status-light status=0></status-light>
+  <status-light status=1></status-light>
+  <status-light status=2></status-light>
+
+  <p>We can use the <code>statuses</code> attribute in order to use custom
+    colors. For example, if we wanted to use 5 colors, we might do something
+    like this:</p>
+  <status-light statuses="['#000', '#F44336', '#FFEB3B', '#4CAF50', '#2196F3']" status="0"></status-light>
+  <status-light statuses="['#000', '#F44336', '#FFEB3B', '#4CAF50', '#2196F3']" status="1"></status-light>
+  <status-light statuses="['#000', '#F44336', '#FFEB3B', '#4CAF50', '#2196F3']" status="2"></status-light>
+  <status-light statuses="['#000', '#F44336', '#FFEB3B', '#4CAF50', '#2196F3']" status="3"></status-light>
+  <status-light statuses="['#000', '#F44336', '#FFEB3B', '#4CAF50', '#2196F3']" status="4"></status-light>
+
+  <p>Programatically change the status of a light by simply updating its <code>status</code> attribute:</p>
+  <status-light id="updateTarget" status=0></status-light>
+  <button id="updateButton">Change Status</button>
+
+  <script>
+    var demoStatus = 0;
+    document.querySelector('#updateButton').addEventListener('click', function() {
+      demoStatus = (demoStatus + 1) % 3;
+      document.querySelector('#updateTarget').setAttribute('status', demoStatus);
+    });
+  </script>
+</body>
+</html>
