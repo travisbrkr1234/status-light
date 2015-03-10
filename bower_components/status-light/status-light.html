@@ -36,6 +36,15 @@ Used as follows:
     (function () {
       "use strict";
       Polymer({
+        /**
+         * The current status to be displayed. By default, no status is set, and
+         * the element displays as grey.
+         *
+         * @attribute status
+         * @type Number
+         * @default null
+         */
+
         created: function() {
           /**
           * The different statuses we are displaying, as a list of hex color
@@ -46,17 +55,7 @@ Used as follows:
           * @default ['#F44336', '#FFEB3B', '#4CAF50']
           */
           this.statuses = ['#F44336', '#FFEB3B', '#4CAF50']
-        },
-
-        /**
-         * The current status to be displayed. By default, no status is set, and
-         * the element displays as grey.
-         *
-         * @attribute status
-         * @type Number
-         * @default null
-         */
-        status: null
+        }
       });
     }());
   </script>
