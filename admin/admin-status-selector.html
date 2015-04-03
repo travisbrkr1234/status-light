@@ -20,7 +20,7 @@ Can be passed queue and status
 @homepage http://
 -->
 
-<polymer-element name="admin-status-selector" attributes="que status value">
+<polymer-element name="admin-status-selector" attributes="que status value type">
     <style>
       :host {
         display: block;
@@ -37,10 +37,10 @@ Can be passed queue and status
     </h3>
 
     <form id="queueStatus">
-      <paper-radio-group name="AdminRadioButtons" vertical layout>
-        <paper-radio-button label="Red" name="red" value="{{red}}"></paper-radio-button>
-        <paper-radio-button label="Yellow" name="yellow" value="{{yellow}}"></paper-radio-button>
-        <paper-radio-button label="Green" name="green" value="{{green}}"></paper-radio-button>
+      <paper-radio-group name="{{ type }}" on-core-select="{{update}}" vertical layout>
+        <paper-radio-button label="Red" name="red"></paper-radio-button>
+        <paper-radio-button label="Yellow" name="yellow"></paper-radio-button>
+        <paper-radio-button label="Green" name="green"></paper-radio-button>
       </paper-radio-group>
     </form>
 
@@ -56,23 +56,13 @@ method="POST">
 
 <script>
 Polymer('admin-status-selector', {
-  red: 'checked',
-  yellow: '',
-  green: '',
-  tester: '',
-
-  redChanged: function(oldValue, newValue) {
-    console.log('red changed', newValue);
-    // ajax post event here
-  },
-
-  yellowChanged: function(oldValue, newValue) {
-    console.log('yellow changed', newValue);
-  },
-
-  greenChanged: function(oldValue, newValue) {
-    console.log('green changed', newValue);
-  },
-  });
+  update: function(e) {
+    var payload = {
+      "type": e.srcElement.getAttribute('name'),
+      "color": e.detail.item.getAttribute('name')
+    }
+    console.log(payload);
+  }
+});
 </script>
 </polymer-element>
