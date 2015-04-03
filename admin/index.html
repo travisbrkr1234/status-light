@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <title>status-light</title>
+  <script src="../public/bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="../public/bower_components/polymer/polymer.html">
+  <link rel="import" href="../public/bower_components/paper-button/paper-button.html">
+  <link rel="import" href="admin-status-selector.html">
+
+  <style>
+    body {
+    display: block;
+    background-color: #79BE37;
+    }
+    content h3 {
+      color: white;
+    }
+  </style>
+</head>
+<div vertical layout center-center>
+    <h1>Admin</h1>
+  <div horizontal layout center-center>
+    <!--p>
+      for example, if you would like to pass the quename, you can use the attribute id, with the values of phone, chat, asr, or online
+    </p-->
+    <admin-status-selector que="Phone"></admin-status-selector>
+    <admin-status-selector que="Chat "></admin-status-selector>
+    <admin-status-selector que="ASR"></admin-status-selector>
+    <admin-status-selector que="Online"></admin-status-selector>
+  </div>
+  <br>
+
+</div>
+<div class="viewOne" vertical layout center-center>
+  <iframe src="http://127.0.0.1:8000/" style= "width: 600px; height: 875px; border: none;" ></iframe>
+</div>
+  <script>
+  </script>
+</body>
+</html>

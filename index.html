@@ -1,14 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
+  <meta charset='utf-8'>
+  <title>status-light</title>
+  <script src="../../../public/bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="../../../public/bower_components/core-ajax/core-ajax.html">
+  <link rel="import" href="../public/components/status-light/status-light.html">
 
-  <script src="../webcomponentsjs/webcomponents.js"></script>
-  <link rel="import" href="../core-component-page/core-component-page.html">
-
+    <meta http-equiv="refresh" content="60">
+  <style>
+    body {
+      font-size: 16px;
+      font-family: sans-serif;
+      background-color: #79BE37;
+    }
+    status-light {
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+    }
+    .lightContainer {
+      background-color:;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    h1 {
+      color: white;
+    }
+  </style>
 </head>
 <body unresolved>
 
-  <core-component-page></core-component-page>
+</head>
+<body>
+    <core-ajax id="lightSet"
+    auto
+    url="http://private-b6fe4-newtest2.apiary-mock.com/status"
+    handleAs="json"
+    ></core-ajax>
+  <div horizontal layout center-center>
+      <div class="lightContainer">
+        <template id="test" bind="{{testData}}">
+          <template repeat="{{data}}">
+            <h1 style="text-align: center;">| {{id}} |</h1>
+            <status-light status={{red}}></status-light>
+            <status-light status={{yellow}}></status-light>
+            <status-light status={{green}}></status-light>
+          </div>
+        </template>
+      </template>
+  </div>
+  <script>
+  var APP ={
+      /*AJAX Success Callback Method*/
+      ajaxCallbackHandler : function(e) {
+        console.log(e);
+          document.querySelector('#test').model = {
+              testData: e.detail.response
+          };
+      }
+  }
+  document.addEventListener('polymer-ready', function() {
+      var ajax = document.querySelector("#lightSet");
+      ajax.addEventListener("core-response",APP.ajaxCallbackHandler);
+  });
+//    var demoStatus = 0; // Start at zero, since statuses are 0-indexed
+//    document.querySelector('#updateButton').addEventListener('click', function() {
+//      var target = document.querySelector('#updateTarget');
+//      demoStatus = (demoStatus + 1) % target.statuses.length; // Increment to the next status
+//      target.setAttribute('status', demoStatus);
+//    });
+  </script>
+</body>
+</html>
 
 </body>
+
 </html>

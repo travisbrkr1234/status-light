@@ -1,0 +1,78 @@
+<link rel="import" href="../public/bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../public/bower_components/core-icons/core-icons.html">
+<!--link rel="import" href="../../bower_components/core-selector/core-selector.html"-->
+<link rel="import" href="../public/bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../public/bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../public/bower_components/paper-button/paper-button.html">
+<link rel="import" href="../public/bower_components/paper-input/paper-input.html">
+<link rel="import" href="../public/bower_components/paper-button/paper-button.html">
+
+<!--
+Can be passed queue and status
+
+##### Example
+
+    <admin-status-selector></admin-status-selector>
+
+@element admin-status-selector
+@blurb This allows an admin to select the status of a queue
+@status alpha
+@homepage http://
+-->
+
+<polymer-element name="admin-status-selector" attributes="que status value">
+    <style>
+      :host {
+        display: block;
+      }
+      paper-fab {
+        background-color: #303442;
+      }
+    </style>
+  <template>
+    <body>
+
+      <h3 align="center">
+      | {{que}} |
+    </h3>
+
+    <form id="queueStatus">
+      <paper-radio-group name="AdminRadioButtons" vertical layout>
+        <paper-radio-button label="Red" name="red" value="{{red}}"></paper-radio-button>
+        <paper-radio-button label="Yellow" name="yellow" value="{{yellow}}"></paper-radio-button>
+        <paper-radio-button label="Green" name="green" value="{{green}}"></paper-radio-button>
+      </paper-radio-group>
+    </form>
+
+
+<!--polymer-ajax id="postUpdates" url="http://private-b6fe4-newtest2.apiary-mock.com/status"
+handleAs="json"
+params="{{queue}}, {{status}}"
+method="POST">
+</polymer-ajax-->
+
+    </body>
+  </template>
+
+<script>
+Polymer('admin-status-selector', {
+  red: 'checked',
+  yellow: '',
+  green: '',
+  tester: '',
+
+  redChanged: function(oldValue, newValue) {
+    console.log('red changed', newValue);
+    // ajax post event here
+  },
+
+  yellowChanged: function(oldValue, newValue) {
+    console.log('yellow changed', newValue);
+  },
+
+  greenChanged: function(oldValue, newValue) {
+    console.log('green changed', newValue);
+  },
+  });
+</script>
+</polymer-element>
