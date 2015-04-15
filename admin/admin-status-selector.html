@@ -44,7 +44,15 @@ Can be passed queue and status
       </paper-radio-group>
     </form>
 
-
+    <core-ajax
+    method="POST"
+    auto
+    id="update"
+    url="http://localhost:5111/statuses/{queue}"
+    params=BDY
+    handleAs="json"
+    on-core-response="{{ajax_upd_status}}">
+  </core-ajax>
 <!--polymer-ajax id="postUpdates" url="http://private-b6fe4-newtest2.apiary-mock.com/status"
 handleAs="json"
 params="{{queue}}, {{status}}"
@@ -54,7 +62,23 @@ method="POST">
     </body>
   </template>
 
-<script>
+  <script>
+  Polymer('admin-status-selector', {
+    ready: function(){},
+    doSend: function(){
+      this.$.update();
+    },
+    update: function(e) {
+      var payload = {
+        "type": e.srcElement.getAttribute('name'),
+        "color": e.detail.item.getAttribute('name')
+      }
+      console.log(payload)
+    }
+  });
+  </script>
+
+  <!--script>
 Polymer('admin-status-selector', {
   update: function(e) {
     var payload = {
@@ -64,5 +88,5 @@ Polymer('admin-status-selector', {
     console.log(payload);
   }
 });
-</script>
+</script-->
 </polymer-element>
