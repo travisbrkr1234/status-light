@@ -64,14 +64,14 @@ method="POST">
   <script>
   Polymer('admin-status-selector', function() {
     var ajax = document.querySelector("core-ajax");
-    ajax.addEventListener("core-respnse", function(e) {
+    ajax.addEventListener("core-response", function (e) {
       var payload = {
         "type": e.srcElement.getAttribute('name'),
         "color": e.detail.item.getAttribute('name')
-      }
+      };
       console.log(payload);
       ajax.go();
-    }
+    });
   });
   </script>
 </polymer-element>
