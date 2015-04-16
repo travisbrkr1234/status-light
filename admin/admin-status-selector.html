@@ -47,9 +47,8 @@ Can be passed queue and status
     <core-ajax
     method="POST"
     auto
-    id="update"
-    url="http://localhost:5111/statuses/{queue}"
-    params=BDY
+    url="http://localhost:5111/statuses/"
+    body='{"queue": {queue}, "status":{status}}'
     handleAs="json"
     on-core-response="{{ajax_upd_status}}">
   </core-ajax>
@@ -64,7 +63,6 @@ method="POST">
 
   <script>
   Polymer('admin-status-selector', {
-    ready: function(){},
     doSend: function(){
       this.$.update();
     },
