@@ -1,0 +1,30 @@
+<link rel="import" href="../public/bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="tester-tester" noscript>
+    <style>
+      :host {
+        display: block;
+      }
+
+    </style>
+  <template>
+    <body>
+      <p>
+        Test
+      </p>
+    <core-ajax id="posting"
+    method="POST"
+    auto
+    url="http://localhost:5111/statuses"
+    body='{"status":"green"}'
+    handleAS:"application/json"
+    ></core-ajax>
+    <p>
+      POST
+    </p>
+    </body>
+  </template>
+
+  <script>
+  </script>
+</polymer-element>
