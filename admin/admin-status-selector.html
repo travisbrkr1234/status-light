@@ -48,7 +48,7 @@ Can be passed queue and status
     method="POST"
     auto
     url="http://localhost:5111/statuses/"
-    body='{"queue": {queue}, "status":{status}}'
+    body='{"queue": {queue}, "status":{name}}'
     handleAs="json"
     on-core-response="{{ajax_upd_status}}">
   </core-ajax>
@@ -62,29 +62,16 @@ method="POST">
   </template>
 
   <script>
-  Polymer('admin-status-selector', {
-    doSend: function(){
-      this.$.update();
-    },
-    update: function(e) {
+  Polymer('admin-status-selector', function() {
+    var ajax = document.querySelector("core-ajax");
+    ajax.addEventListener("core-respnse", function(e) {
       var payload = {
         "type": e.srcElement.getAttribute('name'),
         "color": e.detail.item.getAttribute('name')
       }
-      console.log(payload)
+      console.log(payload);
+      ajax.go();
     }
   });
   </script>
-
-  <!--script>
-Polymer('admin-status-selector', {
-  update: function(e) {
-    var payload = {
-      "type": e.srcElement.getAttribute('name'),
-      "color": e.detail.item.getAttribute('name')
-    }
-    console.log(payload);
-  }
-});
-</script-->
 </polymer-element>
