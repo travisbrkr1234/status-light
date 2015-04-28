@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script src="../webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="../core-component-page/core-component-page.html">
+
+</head>
+<body unresolved>
+
+  <core-component-page></core-component-page>
+
+</body>
+</html>
 <!doctype html>
 <html>
 
@@ -36,7 +50,7 @@
 <body>
     <core-ajax id="lightSet"
     auto
-    url="http://private-b6fe4-newtest2.apiary-mock.com/status"
+    url="http://localhost:5111/statuses"
     handleAs="json"
     ></core-ajax>
   <div horizontal layout center-center>
@@ -65,6 +79,8 @@
       var ajax = document.querySelector("#lightSet");
       ajax.addEventListener("core-response",APP.ajaxCallbackHandler);
   });
+            // fire ajax
+
 //    var demoStatus = 0; // Start at zero, since statuses are 0-indexed
 //    document.querySelector('#updateButton').addEventListener('click', function() {
 //      var target = document.querySelector('#updateTarget');
