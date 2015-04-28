@@ -44,32 +44,23 @@ Can be passed queue and status
       </paper-radio-group>
     </form>
 
-    <!--core-ajax id="poster"
-    method="PUT"
-    auto
-    url="http://localhost:5111/statuses/test"
-    body='{"status":"red}"'
-    handleAs="json"
-    on-core-response="{{ajax_upd_status}}">
-  </core-ajax-->
-<!--polymer-ajax id="postUpdates" url="http://private-b6fe4-newtest2.apiary-mock.com/status"
-handleAs="json"
-params="{{queue}}, {{status}}"
-method="POST">
-</polymer-ajax-->
-
     </body>
   </template>
-
   <script>
   Polymer('admin-status-selector', {
-  update: function(e) {
-    var payload = {
-      "type": e.srcElement.getAttribute('name'),
-      "color": e.detail.item.getAttribute('name')
+    update: function(e) {
+      var payload = {
+        "type": e.target.getAttribute('name'),
+        "color": e.detail.item.getAttribute('name')
+      }
+      console.log(payload); //check to see if data is logged
+      return
+        jQuery.ajax({
+          type: 'PUT',
+          url: 'localhost:5111',
+          data: payload,
+        })
     }
-    this.fire('#poster').go(payload);
-  }
-});
+  });
 </script>
 </polymer-element>
