@@ -53,12 +53,12 @@ Polymer('admin-status-selector', {
       "color": e.detail.item.getAttribute('name')
     }
           console.log(payload); //check to see if data is logged
-      return
-        jQuery.ajax({
+      function _ajax_request url, data, callback, method) {
+        return $.ajax({
+          url: 'localhost:5111/{queue}',
           type: 'PUT',
-          url: 'localhost:5111/queue',
           data: payload,
-       })
+       });
   }
 });
 </script>
