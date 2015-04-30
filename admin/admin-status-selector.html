@@ -44,22 +44,19 @@ Can be passed queue and status
       </paper-radio-group>
     </form>
     </body>
+	<core-ajax id="ajax" url="http://localhost:5111/statuses/{{que}}" method="PUT" auto contentType="appliction/json"></core-ajax>
   </template>
 <script>
 Polymer('admin-status-selector', {
-  update: function(e) {
-    var payload = {
-      "type": e.target.getAttribute('name'),
-      "color": e.detail.item.getAttribute('name')
-    }
-          console.log(payload); //check to see if data is logged
-      function _ajax_request url, data, callback, method) {
-        return $.ajax({
-          url: 'localhost:5111/{queue}',
-          type: 'PUT',
-          data: payload,
-       });
-  }
+	update: function(e) {
+		var payload = {
+			"type": e.target.getAttribute('name'),
+			"color": e.detail.item.getAttribute('name')
+		}
+		console.log(payload); //check to see if data is logged
+		this.$.ajax.body_ = payload;
+		return this.$.ajax.go();
+	}
 });
 </script>
 </polymer-element>
