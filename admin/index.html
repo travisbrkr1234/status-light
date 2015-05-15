@@ -16,6 +16,9 @@
     content h3 {
       color: white;
     }
+  /*  admin-status-selector {
+      padding: 5px;
+    } */
   </style>
 </head>
 <div vertical layout center-center>
@@ -24,10 +27,10 @@
     <!--p>
       for example, if you would like to pass the quename, you can use the attribute id, with the values of phone, chat, asr, or online
     </p-->
-    <admin-status-selector que="Phone" type="Phone"></admin-status-selector>
-    <admin-status-selector que="Chat" type="Chat"></admin-status-selector>
-    <admin-status-selector que="ASR" type="ASR"></admin-status-selector>
-    <admin-status-selector que="Online" type="Online"></admin-status-selector>
+    <admin-status-selector que="Phone" type="Phone" vertical layout center></admin-status-selector>
+    <admin-status-selector que="Chat" type="Chat" vertical layout center></admin-status-selector>
+    <admin-status-selector que="Advanced Support" style="padding-right: 15px;" type="ASR" vertical layout center></admin-status-selector>
+    <admin-status-selector que="Online Tickets" type="Online" vertical layout center></admin-status-selector>
   </div>
   <br>
 

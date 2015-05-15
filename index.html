@@ -1,28 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <script src="../webcomponentsjs/webcomponents.js"></script>
-  <link rel="import" href="../core-component-page/core-component-page.html">
-
-</head>
-<body unresolved>
-
-  <core-component-page></core-component-page>
-
-</body>
-</html>
-<!doctype html>
-<html>
 
 <head>
+  <title>Support Queues</title>
   <meta charset='utf-8'>
-  <title>status-light</title>
-  <script src="../../../public/bower_components/webcomponentsjs/webcomponents.js"></script>
+    <meta http-equiv="refresh" content="60">
+  <script src="./public/bower_components/webcomponentsjs/webcomponents.js"></script>
   <link rel="import" href="../../../public/bower_components/core-ajax/core-ajax.html">
   <link rel="import" href="../public/components/status-light/status-light.html">
 
-    <meta http-equiv="refresh" content="60">
   <style>
     body {
       font-size: 16px;
@@ -44,20 +30,18 @@
     }
   </style>
 </head>
-<body unresolved>
 
-</head>
-<body>
+<body unresolved>
     <core-ajax id="lightSet"
     auto
-    url="http://secret-dusk-9248.herokuapp.com/statuses/"
+    url="https://secret-dusk-9248.herokuapp.com/statuses"
     handleAs="json"
     ></core-ajax>
   <div horizontal layout center-center>
       <div class="lightContainer">
         <template id="test" bind="{{testData}}">
           <template repeat="{{data}}">
-            <h1 style="text-align: center;">| {{id}} |</h1>
+            <h1 style="text-align: center;"> {{id}} </h1>
             <status-light status={{red}}></status-light>
             <status-light status={{yellow}}></status-light>
             <status-light status={{green}}></status-light>
@@ -79,18 +63,7 @@
       var ajax = document.querySelector("#lightSet");
       ajax.addEventListener("core-response",APP.ajaxCallbackHandler);
   });
-            // fire ajax
 
-//    var demoStatus = 0; // Start at zero, since statuses are 0-indexed
-//    document.querySelector('#updateButton').addEventListener('click', function() {
-//      var target = document.querySelector('#updateTarget');
-//      demoStatus = (demoStatus + 1) % target.statuses.length; // Increment to the next status
-//      target.setAttribute('status', demoStatus);
-//    });
   </script>
 </body>
-</html>
-
-</body>
-
 </html>
